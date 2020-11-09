@@ -45,9 +45,8 @@ public class EscolaController {
     }
 
     @PostMapping()
-    public ResponseEntity<Void> cadastrar(@RequestBody EscolaDTO escolaDTO, HttpServletRequest request,
+    public ResponseEntity<Void> cadastrar(@RequestBody Escola escola, HttpServletRequest request,
             UriComponentsBuilder builder) {
-        Escola escola = escolaService.fromDTO(escolaDTO);
         escola = escolaService.save(escola);
         UriComponents uriComponents = builder.path(request.getRequestURI() + "/" + escola.getCodigo()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();
@@ -67,10 +66,10 @@ public class EscolaController {
         return ResponseEntity.ok(escola);
     }
 
-    @PostMapping("/{numero}/cursos")
-    public ResponseEntity<Void> cadastrar(@PathVariable int numero, @RequestBody Curso curso,
+    @PostMapping("/{codigo}/cursos")
+    public ResponseEntity<Void> cadastrar(@PathVariable long codigo, @RequestBody Curso curso,
             HttpServletRequest request, UriComponentsBuilder builder) {
-        curso = cursoService.save(curso, numero);
+        curso = cursoService.save(curso, codigo);
         UriComponents uriComponents = builder.path(request.getRequestURI() + "/" + curso.getId()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
