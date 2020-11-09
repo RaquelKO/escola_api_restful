@@ -33,4 +33,14 @@ public class CursoRepository {
         return curso;
     }
 
+    public Curso update(Curso curso) {
+        Curso aux = getCursoById(curso.getId()).get();
+
+        if (aux != null) {
+            aux.setMatriculasAbertas(curso.isMatriculasAbertas());
+        }
+
+        return aux;
+    }
+
 }
