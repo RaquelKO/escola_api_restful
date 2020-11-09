@@ -2,7 +2,7 @@ package com.example.escola_curso.model;
 
 import java.util.ArrayList;
 
-//import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Escola {
     private long codigo;
@@ -11,7 +11,7 @@ public class Escola {
     private String unidade;
     private String tipo;
 
-    // @JsonIgnore
+    @JsonIgnore
     private ArrayList<Curso> cursos = new ArrayList<Curso>();
 
     public long getCodigo() {
