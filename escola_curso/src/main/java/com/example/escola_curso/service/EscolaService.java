@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.escola_curso.dto.EscolaDTO;
+import com.example.escola_curso.model.Curso;
 import com.example.escola_curso.model.Escola;
 import com.example.escola_curso.repository.EscolaRepository;
 
@@ -46,4 +47,9 @@ public class EscolaService {
         getEscolaByCodigo(escola.getCodigo());
         return repository.update(escola);
     }
+
+    public List<Curso> getCursosByEscola(Escola escola) {
+        return repository.getCursos(escola);
+    }
+
 }

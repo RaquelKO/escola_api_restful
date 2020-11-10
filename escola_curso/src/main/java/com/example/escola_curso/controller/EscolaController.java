@@ -74,4 +74,9 @@ public class EscolaController {
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
 
+    @GetMapping("/{codigo}/cursos")
+    public List<Curso> getCursosByEscola(@PathVariable long codigo) {
+        return escolaService.getCursosByEscola(escolaService.getEscolaByCodigo(codigo));
+    }
+
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
+import com.example.escola_curso.model.Curso;
 import com.example.escola_curso.model.Escola;
 
 import org.springframework.stereotype.Component;
@@ -63,5 +64,9 @@ public class EscolaRepository {
         }
 
         return aux;
+    }
+
+    public List<Curso> getCursos(Escola escola) {
+        return escola.getCursos();
     }
 }
