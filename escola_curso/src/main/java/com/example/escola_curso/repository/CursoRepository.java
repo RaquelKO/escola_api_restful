@@ -43,4 +43,7 @@ public class CursoRepository {
         return aux;
     }
 
+    public void remove(Curso curso) {
+        cursos.remove(curso);
+    }
 }

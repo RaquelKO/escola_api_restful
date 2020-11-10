@@ -50,4 +50,8 @@ public class CursoService {
         return repository.update(curso);
     }
 
+    public void removeById(int id) {
+        repository.remove(getCursoById(id));
+    }
+
 }
