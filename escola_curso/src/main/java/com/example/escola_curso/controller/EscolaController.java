@@ -11,6 +11,7 @@ import com.example.escola_curso.service.CursoService;
 import com.example.escola_curso.service.EscolaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,8 +55,12 @@ public class EscolaController {
 
     @DeleteMapping("/{codigo}")
     public ResponseEntity<Void> deletar(@PathVariable long codigo) {
-        escolaService.removeByCodigo(codigo);
-        return ResponseEntity.noContent().build();
+        if ((escolaService.getEscolaByCodigo(codigo).getCursos().isEmpty())) {
+            escolaService.removeByCodigo(codigo);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
+        }
     }
 
     @PutMapping("/{codigo}")
