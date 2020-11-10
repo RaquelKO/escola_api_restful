@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -54,12 +56,13 @@ public class EscolaController {
     }
 
     @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> deletar(@PathVariable long codigo) {
+    public ResponseEntityExceptionHandler deletar(@PathVariable long codigo) {
         if ((escolaService.getEscolaByCodigo(codigo).getCursos().isEmpty())) {
             escolaService.removeByCodigo(codigo);
-            return ResponseEntity.noContent().build();
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         } else {
-            return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
+            throw new ResponseStatusException(HttpStatus.METHOD_NOT_ALLOWED, "Não é possível apagar escola");
+
         }
     }
 
