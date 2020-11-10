@@ -8,7 +8,7 @@ import com.example.escola_curso.service.CursoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+//import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,12 +40,6 @@ public class CursoController {
         curso.setId(id);
         curso = service.update(curso);
         return ResponseEntity.ok(curso);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable int id) {
-        service.removeById(id);
-        return ResponseEntity.noContent().build();
     }
 
 }

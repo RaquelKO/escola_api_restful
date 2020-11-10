@@ -52,4 +52,8 @@ public class EscolaService {
         return repository.getCursos(escola);
     }
 
+    public void removeCurso(Escola escola, Curso curso) {
+        repository.removeCurso(escola, curso);
+    }
+
 }

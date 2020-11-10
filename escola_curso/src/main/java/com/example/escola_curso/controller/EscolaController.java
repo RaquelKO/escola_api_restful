@@ -79,4 +79,11 @@ public class EscolaController {
         return escolaService.getCursosByEscola(escolaService.getEscolaByCodigo(codigo));
     }
 
+    @DeleteMapping("/{codigo}/cursos/{id}")
+    public ResponseEntity<Void> deletarCurso(@PathVariable long codigo, @PathVariable int id) {
+        escolaService.removeCurso(escolaService.getEscolaByCodigo(codigo), cursoService.getCursoById(id));
+        cursoService.removeById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -69,4 +69,8 @@ public class EscolaRepository {
     public List<Curso> getCursos(Escola escola) {
         return escola.getCursos();
     }
+
+    public void removeCurso(Escola escola, Curso curso) {
+        escola.removeCurso(curso);
+    }
 }
