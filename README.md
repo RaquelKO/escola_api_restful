@@ -2,7 +2,7 @@
 
 Exercício da disciplina de Programação Orientada a Objetos da FACENS.
 
-"1. Construa uma API RestFul com SpringBoot, seguindo os modelos e a arquitetura de sistema apresentados durante a disciplina. 
+" 1. Construa uma API RestFul com SpringBoot, seguindo os modelos e a arquitetura de sistema apresentados durante a disciplina. 
 
 2. Esse projeto terá 2 modelos. Temos os seguintes modelos: Escola e  Curso<br>
 Uma Escola possui vários Cursos e um Curso só pode ser de uma Escola.<br>
